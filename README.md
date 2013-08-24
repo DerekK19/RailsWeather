@@ -1,0 +1,4 @@
+RailsWeather
+============
+
+Rails Weather statistics
