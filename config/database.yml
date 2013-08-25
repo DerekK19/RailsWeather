@@ -26,12 +26,11 @@ development:
   adapter: sqlserver
   encoding: utf8
   reconnect: false
-  database: weather_development
-  username: weather
-  password:
+  database: weather
+  username: rails
+  password: rails
   timeout: 25
-  dataserver: from_freetds.conf
-
+  dataserver: sqlserver
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -41,17 +40,17 @@ test:
   encoding: utf8
   reconnect: false
   database: weather_test
-  username: weather
-  password:
+  username: rails
+  password: rails
   timeout: 25
-  dataserver: from_freetds.conf
+  dataserver: sqlserver
 
 production:
   adapter: sqlserver
   encoding: utf8
   reconnect: false
   database: weather_production
-  username: weather
-  password:
+  username: rails
+  password: rails
   timeout: 25
-  dataserver: from_freetds.conf
+  dataserver: sqlserver
