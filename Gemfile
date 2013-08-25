@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '3.2.0'
 
+# sqlserver adapter requires tiny_tds
+gem 'tiny_tds'
+
 # Use sqlserver as the database for Active Record
 gem 'activerecord-sqlserver-adapter', '~> 3.2.0'
 
