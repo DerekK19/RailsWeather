@@ -1,0 +1,23 @@
+<h1>Listing rainfalls</h1>
+
+<%= link_to 'New rainfall', new_rainfall_path %>
+
+<table>
+  <tr>
+    <th>Sensor</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
+
+<% @rainfalls.each do |rainfall| %>
+  <tr>
+    <td><%= rainfall.sensor.Name %></td>
+    <td><%= rainfall.fromDttm %></td>
+    <td><%= rainfall.toDttm %></td>
+    <td><%= rainfall.value %></td>
+    <td><%= link_to 'Show', rainfall_path(rainfall) %></td>
+  </tr>
+<% end %>
+</table>

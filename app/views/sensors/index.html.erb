@@ -1,0 +1,17 @@
+<h1>Listing sensors</h1>
+
+<%= link_to 'New sensor', new_sensor_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @sensors.each do |sensor| %>
+  <tr>
+    <td><%= sensor.Name %></td>
+    <td><%= link_to 'Show', sensor_path(sensor) %></td>
+  </tr>
+<% end %>
+</table>

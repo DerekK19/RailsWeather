@@ -1,0 +1,25 @@
+<h1>Listing winds</h1>
+
+<%= link_to 'New wind', new_wind_path %>
+
+<table>
+  <tr>
+    <th>Sensor</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Direction</th>
+    <th>Speed</th>
+    <th></th>
+  </tr>
+
+<% @winds.each do |wind| %>
+  <tr>
+    <td><%= wind.sensor.Name %></td>
+    <td><%= wind.fromDttm %></td>
+    <td><%= wind.toDttm %></td>
+    <td><%= wind.direction %></td>
+    <td><%= wind.speed %></td>
+    <td><%= link_to 'Show', wind_path(wind) %></td>
+  </tr>
+<% end %>
+</table>

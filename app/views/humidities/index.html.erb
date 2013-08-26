@@ -1,0 +1,23 @@
+<h1>Listing humidities</h1>
+
+<%= link_to 'New humidity', new_humidity_path %>
+
+<table>
+  <tr>
+    <th>Sensor</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
+
+<% @humidities.each do |humidity| %>
+  <tr>
+    <td><%= humidity.sensor.Name %></td>
+    <td><%= humidity.fromDttm %></td>
+    <td><%= humidity.toDttm %></td>
+    <td><%= humidity.value %></td>
+    <td><%= link_to 'Show', humidity_path(humidity) %></td>
+  </tr>
+<% end %>
+</table>

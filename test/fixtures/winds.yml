@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sensor: 
+  fromDttm: 2013-08-26 17:19:05
+  toDttm: 2013-08-26 17:19:05
+  direction: 
+  speed: 1.5
+
+two:
+  sensor: 
+  fromDttm: 2013-08-26 17:19:05
+  toDttm: 2013-08-26 17:19:05
+  direction: 
+  speed: 1.5
