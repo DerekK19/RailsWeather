@@ -17,6 +17,8 @@ set :repository,  "git@github.com:DerekK19/RailsWeather.git"
 
 set :scm, :git
 
+ssh_options[:forward_agent] = true
+
 set :normalize_asset_timestamps, false			# disable asset timestamps update, since rails doesn't use these
 
 after "deploy:restart", "deploy:cleanup"        # clean up old releases on each deploy
