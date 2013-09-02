@@ -1,5 +1,3 @@
-load '../static/DomainHelper.rb'
-
 module ApplicationHelper
 	def tableless_page(*args)
 		if args.size == 3

@@ -34,6 +34,8 @@ gem 'jquery-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+gem 'static'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
