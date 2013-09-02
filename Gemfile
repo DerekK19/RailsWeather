@@ -25,11 +25,14 @@ end
 
 gem 'jquery-rails'
 
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Use unicorn as the web server
+# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -40,8 +43,8 @@ gem 'rvm-capistrano'
 # Use colored for capistrano progress display
 gem 'colored'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# pagination library
+gem 'will_paginate', '~> 3.0'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

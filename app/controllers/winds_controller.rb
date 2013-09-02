@@ -5,7 +5,7 @@ def show
 end
 
 def index
-  @winds = Wind.all
+  @winds = Wind.display_data(params[:page], params[:sort_by])
 end
 
 end

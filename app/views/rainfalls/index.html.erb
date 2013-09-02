@@ -1,8 +1,7 @@
 <h1>Listing rainfalls</h1>
 
-<%= link_to 'New rainfall', new_rainfall_path %>
-
 <table>
+  <thead>
   <tr>
     <th>Sensor</th>
     <th>From</th>
@@ -10,14 +9,20 @@
     <th>Value</th>
     <th></th>
   </tr>
-
-<% @rainfalls.each do |rainfall| %>
-  <tr>
-    <td><%= rainfall.sensor.Name %></td>
-    <td><%= rainfall.fromDttm %></td>
-    <td><%= rainfall.toDttm %></td>
-    <td><%= rainfall.value %></td>
-    <td><%= link_to 'Show', rainfall_path(rainfall) %></td>
-  </tr>
-<% end %>
+  </thead>
+  
+  <tbody>
+  <% @rainfalls.each do |rainfall| %>
+    <tr class="<%= cycle("even","odd")%>">
+      <td><%=h rainfall.sensor.Name %></td>
+      <td><%=h rainfall.fromDttm %></td>
+      <td><%=h rainfall.toDttm %></td>
+      <td><%=h rainfall.value %></td>
+      <td bgcolor="FFFFFF"><%= link_to 'Show', rainfall_path(rainfall) %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
+
+<%= will_paginate @rainfalls %>
+<%= link_to 'New rainfall', new_rainfall_path %>

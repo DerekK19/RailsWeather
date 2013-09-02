@@ -1,17 +1,22 @@
 <h1>Listing sensors</h1>
 
-<%= link_to 'New sensor', new_sensor_path %>
-
 <table>
+  <thead>
   <tr>
     <th>Name</th>
     <th></th>
   </tr>
+  </thead>
 
-<% @sensors.each do |sensor| %>
-  <tr>
-    <td><%= sensor.Name %></td>
-    <td><%= link_to 'Show', sensor_path(sensor) %></td>
-  </tr>
-<% end %>
+  <tbody>
+  <% @sensors.each do |sensor| %>
+    <tr class="<%= cycle("even","odd")%>">
+      <td><%=h sensor.Name %></td>
+      <td bgcolor="FFFFFF"><%= link_to 'Show', sensor_path(sensor) %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
+
+<%= will_paginate @sensors %>
+<%= link_to 'New sensor', new_sensor_path %>

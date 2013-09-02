@@ -1,0 +1,393 @@
+/* Standard styles
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+End of standard styles
+*/
+
+body {
+  background-color: #fff; 
+  color: #333;
+  margin-top: -20px;
+}
+
+body, p, ol, ul {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 16px;
+  /*min-width: 800px; */
+}
+
+h1 {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:   24pt;
+	line-height: 40px;
+	text-align:  center;
+	min-width: 0px;
+}
+
+h2 {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:   18pt;
+	line-height: 24pt;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000;}
+a:visited { color: #000; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/*  Styles for page header (with icon, heading and "About/Back" hyperlink */
+div.header
+{
+	background-color: #1e5ebd;
+	width: 100%;
+	height: 78px;
+}
+
+div.left-header
+{
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 100px;
+}
+
+div.centre-header
+{
+  float: center;
+  margin-top: 20px;
+}
+
+div.right-header
+{
+  float: right;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: -40px;
+  margin-bottom: 0px;
+  width: 100px;
+}
+
+img.ruby-icon
+{
+	width: 37px;
+	height: 47px;
+	margin-top: 20px;
+	margin-bottom: -3px;
+	padding-bottom: 0px;
+	z-index: 1;
+}
+
+/* Stylesfor rest of page  - with left-hand menu, error message, navigation bar and content area */
+div.page-content
+{
+	width: 100%;
+}
+
+div.left-menu
+{
+	float: left;
+	background-color: #bbf;
+	background: url(/static/images/css-gradient.gif) 0% 0% repeat-x;
+	width: 200px;
+	height: 300px;
+	z-index: -1;
+}
+
+div.right-content
+{
+	float: left;
+	background-color: #fff;
+}
+
+div.tab-header
+{
+	float: left;
+	width: 100%;
+	height: 36px;
+	background-color: #1e5ebd;
+}
+
+#navbar {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1.2em;
+	font-weight:bold;
+	display: block;
+	padding:0px 0px;
+	background:url("/static/images/tab_background.gif") repeat-x;
+	height: 34px;
+	background-color: #1e5ebd;
+	margin: 0px 0px 0px 200px;
+}
+
+#navbar li {
+	list-style:none;
+	display:inline;
+}
+
+#navbar a {
+	width:110px;
+	height:24px;
+	color:#fff;
+	text-decoration:none;
+	background:url("/static/images/tab_tab.gif") no-repeat;
+	float:left;
+	padding: 10px 10px 0px;
+	margin:0 -10px;
+}
+
+#navbar a:hover { 
+	background-position:0 -36px;
+	color:#1e5ebd;
+}
+
+#navbar a:active {
+	background-position:0 -73px;
+	color:#1e5ebd;
+}
+
+#navbar a[class='current']
+{
+  background-position:0 -73px;
+  color:#1e5ebd;
+}
+
+div.page_data
+{
+	text-align: center;
+}
+
+div.error-content
+{
+	float: left;
+	text-align: left;
+}
+
+/* Styles for page footer - with left and right hand components */
+div.footer
+{
+	width: 97%;
+	position: absolute;
+	bottom: 30px;
+}
+
+div.left-footer
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  position: absolute;
+  left: 0;
+  color: #999;
+  width: 50%;
+  font-size: 11px;  
+}
+
+div.right-footer
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  color: #999;
+  width: 50%;
+  font-size: 11px;  
+}
+
+/*  Other stuff */
+
+
+table
+{
+	top: 0;
+	bottom: 0;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	border-width: 0;
+	border-collapse: 0;
+	border-spacing: 0;
+	background-repeat: no-repeat;
+}
+
+table.header
+{
+	background-color: #1e5ebd;
+	width: 100%;
+}
+
+table.page_data
+{
+	background-color: #fff;
+}
+
+div.page_data table
+{
+	margin-right:	auto;
+	text-align: left; 
+}
+
+th {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   10pt;
+  line-height: 13pt;
+  font-weight: bold;
+  background-color: #bbb;
+}
+
+tr[class='even'] {
+  background-color: #ddd;
+}
+
+td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 16px;
+}
+
+tr[class='odd'] {
+  background-color: #eee;
+}
+
+table.left_menu
+{
+	background-color: #dfd;
+	width: 150px;
+	height: 384px;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+.tagcloud0 {color: #88E; font-weight:bold; font-size: 1.0em;}
+.tagcloud1 {color: #88E; font-weight:bold; font-size: 1.0em;}
+.tagcloud2 {color: #88E; font-weight:bold; font-size: 1.2em;}
+.tagcloud3 {color: #88E; font-weight:bold; font-size: 1.4em;}
+.tagcloud4 {color: #88E; font-weight:bold; font-size: 1.6em;}
+.tagcloud5 {color: #88E; font-weight:bold; font-size: 1.8em;}
+.tagcloud6 {color: #88E; font-weight:bold; font-size: 2.0em;}
+

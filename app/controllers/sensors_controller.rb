@@ -5,7 +5,7 @@ def show
 end
 
 def index
-  @sensors = Sensor.all
+  @sensors = Sensor.display_data(params[:page], params[:sort_by])
 end
 
 end

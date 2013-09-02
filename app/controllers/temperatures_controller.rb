@@ -5,7 +5,7 @@ def show
 end
 
 def index
-  @temperatures = Temperature.all
+  @temperatures = Temperature.display_data(params[:page], params[:sort_by])
 end
 
 end

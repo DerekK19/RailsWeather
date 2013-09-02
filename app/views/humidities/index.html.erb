@@ -1,8 +1,7 @@
 <h1>Listing humidities</h1>
 
-<%= link_to 'New humidity', new_humidity_path %>
-
 <table>
+  <thead>
   <tr>
     <th>Sensor</th>
     <th>From</th>
@@ -10,14 +9,20 @@
     <th>Value</th>
     <th></th>
   </tr>
+  </thead>
 
-<% @humidities.each do |humidity| %>
-  <tr>
-    <td><%= humidity.sensor.Name %></td>
-    <td><%= humidity.fromDttm %></td>
-    <td><%= humidity.toDttm %></td>
-    <td><%= humidity.value %></td>
-    <td><%= link_to 'Show', humidity_path(humidity) %></td>
-  </tr>
-<% end %>
+  <tbody>
+  <% @humidities.each do |humidity| %>
+    <tr class="<%= cycle("even","odd")%>">
+      <td><%=h humidity.sensor.Name %></td>
+      <td><%=h humidity.fromDttm %></td>
+      <td><%=h humidity.toDttm %></td>
+      <td><%=h humidity.value %></td>
+      <td bgcolor="FFFFFF"><%= link_to 'Show', humidity_path(humidity) %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
+
+<%= will_paginate @humidities %>
+<%= link_to 'New humidity', new_humidity_path %>

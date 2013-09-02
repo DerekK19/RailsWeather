@@ -5,7 +5,7 @@ def show
 end
 
 def index
-  @humidities = Humidity.all
+  @humidities = Humidity.display_data(params[:page], params[:sort_by])
 end
 
 end

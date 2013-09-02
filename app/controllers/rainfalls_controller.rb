@@ -5,7 +5,7 @@ def show
 end
 
 def index
-  @rainfalls = Rainfall.all
+  @rainfalls = Rainfall.display_data(params[:page], params[:sort_by])
 end
 
 end
