@@ -50,7 +50,7 @@ module ApplicationHelper
 	  <div class="header">
 	    <div class="left-header"><image class="ruby-icon" src="/static/images/rails.gif"></image></div>
 	    <div class="machine-header"><ul>'
-	    DomainHelper.machine_menu_items.each {|x| rValue += '<li><a href="http:/' + x[1] + '/' + site + '">' + x[0] + '</a></li>' }
+	    Static::machine_menu_items.each {|x| rValue += '<li><a href="http:/' + x[1] + '/' + site + '">' + x[0] + '</a></li>' }
 		rValue += '
 	    </ul></div>
 	    <div class="centre-header"><h1>' + current_header + '</h1></div>
