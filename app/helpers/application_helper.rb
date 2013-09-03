@@ -11,14 +11,6 @@ module ApplicationHelper
 	private #methods
 	# =========================================================================
 
-	def navbar_items
-		[
-			['Elements', 'elements'],
-			['Photos', 'photos'],
-			['Weather', 'weather'],
-		]
-	end
-
 	def current_navbar
 	'Weather'
 	end
@@ -45,7 +37,8 @@ module ApplicationHelper
 
 	def header(right_text, right_link)
 		site=''
-		navbar_items.each {|x| site += x[0] == current_navbar ? x[1] : ''}
+		n = Static::navbar_items[Rails::env]
+		n.each {|x| site += x[0] == current_navbar ? x[1] : ''}
 		rValue ='
 	  <div class="header">
 	    <div class="left-header"><image class="ruby-icon" src="/static/images/rails.gif"></image></div>
@@ -59,7 +52,7 @@ module ApplicationHelper
 	  <div class="tab-header">
 		<ul id="navbar">'
 
-		navbar_items.each {|x| rValue += x[0] == current_navbar ?
+		n.each {|x| rValue += x[0] == current_navbar ?
 			('<li><a class="current">' + x[0] + '</a></li>') :
 			('<li><a href="http://' + ENV['SERVER_NAME'] + '/' + x[1] + '">' + (x[0]) + '</a></li>') }
 
