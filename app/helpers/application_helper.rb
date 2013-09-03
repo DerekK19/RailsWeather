@@ -49,6 +49,6 @@ module ApplicationHelper
 		</div>
 	  </div>
 
-	  ' + Static::footer(link_to 'Rails', controller: 'rails/info', action: 'properties')
+	  ' + Static::footer(Rails::env == 'development' ? (link_to 'Rails', controller: 'rails/info', action: 'properties') : 'Rails')
 	end
 end
