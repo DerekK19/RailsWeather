@@ -45,6 +45,16 @@ test:
   timeout: 25
   dataserver: sqlserver
 
+staging:
+  adapter: sqlserver
+  encoding: utf8
+  reconnect: false
+  database: weather
+  username: rails
+  password: rails
+  timeout: 25
+  dataserver: sqlserver
+
 production:
   adapter: sqlserver
   encoding: utf8
