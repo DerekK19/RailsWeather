@@ -54,8 +54,9 @@ module ApplicationHelper
 
 		n.each {|x| rValue += x[0] == current_navbar ?
 			('<li><a class="current">' + x[0] + '</a></li>') :
-			('<li><a href="http://' + ENV['SERVER_NAME'] + '/' + x[1] + '">' + (x[0]) + '</a></li>') }
-
+			ENV['SERVER_PORT'] == '80' ?
+			('<li><a href="http://' + ENV['SERVER_NAME'] + '/' + x[1] + '">' + (x[0]) + '</a></li>') :
+			('<li><a href="http://' + ENV['SERVER_NAME'] + ':' + ENV['SERVER_PORT'] + '/' + x[1] + '">' + (x[0]) + '</a></li>') }
 		rValue += '
 		</ul>
 	  </div>
