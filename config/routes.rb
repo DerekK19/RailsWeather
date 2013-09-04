@@ -1,28 +1,17 @@
 Weather::Application.routes.draw do
   get "humidities/index"
-
   get "humidities/show"
-
   get "temperatures/index"
-
   get "temperatures/show"
-
   get "rainfalls/index"
-
   get "rainfalls/show"
-
   get "sensors/index"
-
   get "sensors/show"
-
   get "winds/index"
-
   get "winds/show"
-
   get "welcome/index"
   
-  resources :sensors
-  
+  resources :sensors  
   resources :temperatures
   resources :humidities
   resources :winds

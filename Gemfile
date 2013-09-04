@@ -34,6 +34,7 @@ gem 'jquery-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+# My own static data
 gem 'static'
 
 # Use Capistrano for deployment
@@ -50,3 +51,6 @@ gem 'will_paginate', '~> 3.0'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# Use lazy highcharts for drawing graphs
+gem 'lazy_high_charts'

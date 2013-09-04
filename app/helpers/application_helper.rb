@@ -22,7 +22,7 @@ module ApplicationHelper
 	def left_menu_items
 		[
 			['Temperature', '/temperatures'],
-			['Humdity', '/humidities'],
+			['Humidity', '/humidities'],
 			['Rainfall', '/rainfalls'],
 			['Wind', '/winds'],
 			['Sensors', '/sensors'],
@@ -49,6 +49,6 @@ module ApplicationHelper
 		</div>
 	  </div>
 
-	  ' + Static::footer(Rails::env == 'development' ? (link_to 'Rails', controller: 'rails/info', action: 'properties') : 'Rails')
+	  ' + Static::footer(url_root)
 	end
 end
