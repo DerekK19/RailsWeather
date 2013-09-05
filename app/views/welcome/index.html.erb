@@ -1,1 +1,7 @@
-<h1>My weather station</h1>
+<h1>Weather At <%= @weather_date %></h1>
+Temperature is <%= h @temperature.value %>&deg; C
+<br/>
+Humidity is <%= h @humidity.value %>%
+<br/>
+Wind speed is <%= h @wind.speed %> m/s <%= h @wind_direction %>
+<br/>
