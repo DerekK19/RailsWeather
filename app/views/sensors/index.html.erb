@@ -10,7 +10,7 @@
 
   <tbody>
   <% @sensors.each do |sensor| %>
-    <tr class="<%= cycle("even","odd")%>">
+    <tr bgcolor="<%= cycle(sensor.HexColour,sensor.DullHexColour)%>">
       <td><%=h sensor.Name %></td>
       <td bgcolor="FFFFFF"><%= link_to 'Show', sensor_path(sensor) %></td>
     </tr>

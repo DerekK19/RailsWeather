@@ -11,9 +11,17 @@ class Temperature < ActiveRecord::Base
 	
 	def HexColour
 		begin
-			self.Colour == 0 ? 'FFFFFF' : (self.Colour.to_s(16).rjust(6,'0')[4,2])+(self.Colour.to_s(16).rjust(6,'0')[2,2])+(self.Colour.to_s(16).rjust(6,'0')[0,2])
+			sensor.Identifier == 1 ? 'FF7777' : '7777FF'
 		rescue
-			'FFFFFF'
+			'D0D0D0'
+		end
+	end
+
+	def DullHexColour
+		begin
+			sensor.Identifier == 1 ? 'FFBBBB' : 'BBBBFF'
+		rescue
+			'B0B0B0'
 		end
 	end
 

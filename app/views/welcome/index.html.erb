@@ -1,8 +1,8 @@
 <h1>Weather At <%= @welcome.current_values[:weather_date] %></h1>
 <%= form_for @welcome, :url => {:controller => "welcome", :action => "index"}, :html => {:multipart => true} do |f| %>
-	<%= radio_button_tag :sensor, "1", @welcome.current_values[:sensor] == "1", :onclick => "this.form.submit();" %>
-	<%= f.label :sensor_arduino, "Arduino" %>
 	<%= radio_button_tag :sensor, "2", @welcome.current_values[:sensor] == "2", :onclick => "this.form.submit();" %>
+	<%= f.label :sensor_arduino, "Arduino" %>
+	<%= radio_button_tag :sensor, "1", @welcome.current_values[:sensor] == "1", :onclick => "this.form.submit();" %>
 	<%= f.label :sensor_raspi, "Raspberry Pi" %>
 	<p/>
 	Temperature is <%= h @welcome.current_values[:temperature] %>&deg; C
@@ -11,5 +11,6 @@
 	<br/>
 	Wind speed is <%= h @welcome.current_values[:wind_speed] %> m/s <%= h @welcome.current_values[:wind_direction] %>
 	<br/>
-<%= f.submit "", :hidden => true %>
+	<p/>
+	<%= f.submit "Refresh" %>
 <% end %>

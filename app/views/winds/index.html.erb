@@ -14,7 +14,7 @@
 
   <tbody>
   <% @winds.each do |wind| %>
-    <tr class="<%= cycle("even","odd")%>">
+    <tr bgcolor="<%= cycle(wind.HexColour,wind.DullHexColour)%>">
       <td><%=h wind.sensor.Name %></td>
       <td><%=h wind.fromDttm %></td>
       <td><%=h wind.toDttm %></td>

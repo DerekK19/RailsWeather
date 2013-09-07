@@ -13,7 +13,7 @@
 
   <tbody>
   <% @temperatures.each do |temperature| %>
-    <tr class="<%= cycle("even","odd")%>">
+    <tr bgcolor="<%= cycle(temperature.HexColour,temperature.DullHexColour)%>">
       <td><%=h temperature.sensor.Name %></td>
       <td><%=h temperature.fromDttm %></td>
       <td><%=h temperature.toDttm %></td>

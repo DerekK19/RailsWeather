@@ -13,7 +13,7 @@
 
   <tbody>
   <% @humidities.each do |humidity| %>
-    <tr class="<%= cycle("even","odd")%>">
+    <tr bgcolor="<%= cycle(humidity.HexColour,humidity.DullHexColour)%>">
       <td><%=h humidity.sensor.Name %></td>
       <td><%=h humidity.fromDttm %></td>
       <td><%=h humidity.toDttm %></td>

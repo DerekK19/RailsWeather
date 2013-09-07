@@ -13,7 +13,7 @@
   
   <tbody>
   <% @rainfalls.each do |rainfall| %>
-    <tr class="<%= cycle("even","odd")%>">
+    <tr bgcolor="<%= cycle(rainfall.HexColour,rainfall.DullHexColour)%>">
       <td><%=h rainfall.sensor.Name %></td>
       <td><%=h rainfall.fromDttm %></td>
       <td><%=h rainfall.toDttm %></td>
