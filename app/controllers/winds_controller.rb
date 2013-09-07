@@ -5,6 +5,7 @@ def show
 end
 
 def index
+  params[:sort_by] = 'Identifier desc'
   @winds = Wind.display_data(params[:page], params[:sort_by])
 end
 

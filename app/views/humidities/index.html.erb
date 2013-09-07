@@ -3,10 +3,10 @@
 <table>
   <thead>
   <tr>
-    <th>Sensor</th>
-    <th>From</th>
-    <th>To</th>
-    <th>Value</th>
+    <th width="100" align="left">Sensor</th>
+    <th width="120" align="left">From</th>
+    <th width="120" align="left">To</th>
+    <th width="100" align="left">Value</th>
     <th></th>
   </tr>
   </thead>
@@ -15,8 +15,8 @@
   <% @humidities.each do |humidity| %>
     <tr bgcolor="<%= cycle(humidity.HexColour,humidity.DullHexColour)%>">
       <td><%=h humidity.sensor.Name %></td>
-      <td><%=h humidity.fromDttm %></td>
-      <td><%=h humidity.toDttm %></td>
+      <td><%=h humidity.fromDttm.strftime("%d %b %H:%M") %></td>
+      <td><%=h humidity.toDttm.strftime("%d %b %H:%M") %></td>
       <td><%=h humidity.value %></td>
       <td bgcolor="FFFFFF"><%= link_to 'Show', humidity_path(humidity) %></td>
     </tr>

@@ -3,10 +3,10 @@
 <table>
   <thead>
   <tr>
-    <th>Sensor</th>
-    <th>From</th>
-    <th>To</th>
-    <th>Value</th>
+    <th width="100" align="left">Sensor</th>
+    <th width="120" align="left">From</th>
+    <th width="120" align="left">To</th>
+    <th width="100" align="left">Value</th>
     <th></th>
   </tr>
   </thead>
@@ -15,8 +15,8 @@
   <% @temperatures.each do |temperature| %>
     <tr bgcolor="<%= cycle(temperature.HexColour,temperature.DullHexColour)%>">
       <td><%=h temperature.sensor.Name %></td>
-      <td><%=h temperature.fromDttm %></td>
-      <td><%=h temperature.toDttm %></td>
+      <td><%=h temperature.fromDttm.strftime("%d %b %H:%M") %></td>
+      <td><%=h temperature.toDttm.strftime("%d %b %H:%M") %></td>
       <td><%=h temperature.value %></td>
       <td bgcolor="FFFFFF"><%= link_to 'Show', temperature_path(temperature) %></td>
     </tr>
