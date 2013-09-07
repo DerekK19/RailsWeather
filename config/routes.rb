@@ -11,6 +11,8 @@ Weather::Application.routes.draw do
   get "winds/show"
   get "welcome/index"
   
+  post "welcome/index"
+  
   resources :sensors  
   resources :temperatures
   resources :humidities
