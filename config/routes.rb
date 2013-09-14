@@ -10,7 +10,6 @@ Weather::Application.routes.draw do
   get "winds/index"
   get "winds/show"
   get "welcome/index"
-  
   post "welcome/index"
   
   resources :sensors  
