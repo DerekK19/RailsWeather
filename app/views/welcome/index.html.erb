@@ -12,7 +12,6 @@
 	Wind speed is <%= h @welcome.current_values[:wind_speed] %> m/s <%= h @welcome.current_values[:wind_direction] %>
 	<br/>
 	<p/>
-	<%= h @welcome.current_values[:arduino_today].count %>
 	<section id="my_id">
 		<%= high_chart("my_id", @chart_data) %>
 	</section>

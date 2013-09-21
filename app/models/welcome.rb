@@ -1,29 +1,36 @@
 class Welcome < ActiveRecord::Base
 	self.table_name = "Sensor"
+   	@@latest_time = DateTime.now + 1
    
     def set_sensor(sensor_id)
     	@sensor_id = sensor_id
+    	@@latest_time = DateTime.now + 1
+    	@@current_values = nil
     	self.current_values
     end
 
 	def current_values
 		temp = Temperature.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
-		hum = Humidity.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
-		wind = Wind.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
-		rain = Rainfall.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
-		raspberry_temps = self.normalize_records(Temperature.where("sensor = ? and fromDttm > ?", 1, Date.today.to_s).order("Identifier ASC"), 15)
-		arduino_temps = self.normalize_records(Temperature.where("sensor = ? and fromDttm > ?", 2, Date.today.to_s).order("Identifier ASC"), 15)
-  		{
-  			:temperature => temp == nil ? '' : temp.value,
-	  		:humidity => hum == nil ? '' : hum.value,
-  			:wind_speed => wind == nil ? '' : wind.speed,
-  			:rainfall => rain == nil ? '' : rain.value,
-	  		:wind_direction => wind == nil ? '' : ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][wind.direction],
-	  		:weather_date => temp == nil ? '' : temp.toDttm.strftime("%H:%M %d %b"),
-	  		:raspberry_today => raspberry_temps,
-	  		:arduino_today => arduino_temps,
-	  		:sensor => @sensor_id
-	  	}
+		if (temp.toDttm != @@latest_time || @@current_values == nil) then
+			@@latest_time = temp.toDttm
+			hum = Humidity.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
+			wind = Wind.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
+			rain = Rainfall.where("sensor = ?", @sensor_id).order("Identifier DESC").limit(1).first
+			raspberry_temps = self.normalize_records(Temperature.where("sensor = ? and fromDttm > ?", 1, Date.today.to_s).order("Identifier ASC"), 15)
+			arduino_temps = self.normalize_records(Temperature.where("sensor = ? and fromDttm > ?", 2, Date.today.to_s).order("Identifier ASC"), 15)
+	  		@@current_values = {
+	  			:temperature => temp == nil ? '' : temp.value,
+		  		:humidity => hum == nil ? '' : hum.value,
+	  			:wind_speed => wind == nil ? '' : wind.speed,
+	  			:rainfall => rain == nil ? '' : rain.value,
+		  		:wind_direction => wind == nil ? '' : ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][wind.direction],
+		  		:weather_date => temp == nil ? '' : temp.toDttm.strftime("%H:%M %d %b"),
+		  		:raspberry_today => raspberry_temps,
+		  		:arduino_today => arduino_temps,
+		  		:sensor => @sensor_id
+		  	}
+		end
+		@@current_values
 	end
 
 	def normalize_records(records, interval_minutes)
@@ -31,8 +38,8 @@ class Welcome < ActiveRecord::Base
 		rValue = Array.new
 		temp = Array.new(24 * 60 / interval_minutes) { |i| [i*interval_minutes, 0] }
 		temp.each { |i| i[1] = self.value_at(records, i[0]) }
-		temp.each { |i| if i[1] > -10 && i[0] < minutes_now then rValue << i end }
-		rValue.each { |i| i[0] = Time.at(i[0] * 60) }
+		temp.each { |i| if i[1] > -100 && i[0] < minutes_now then rValue << i end }
+		rValue.each { |i| i[0] = Date.today.to_datetime+(i[0]/(24*60.0)) }
 	end
 
 	def value_at(records, time)
@@ -47,7 +54,7 @@ class Welcome < ActiveRecord::Base
 			rescue
 			end
 		}
-		records.each { |i| if i.fromDttm < time then rValue = i.value.to_f end }
+		records.each { |i| if i.fromDttm <= time then rValue = i.value.to_f end }
 		rValue
 	end
 
