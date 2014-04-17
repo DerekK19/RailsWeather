@@ -9,6 +9,11 @@ Weather::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
+  # Do not eager load code on boot.
+  config.eager_load = false
+
+  config.serve_static_assets  = true
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

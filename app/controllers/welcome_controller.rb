@@ -7,7 +7,9 @@ class WelcomeController < ApplicationController
     temps = (cv[:arduino_today].map{ |i| i[1]}+cv[:raspberry_today].map{ |i| i[1]}).minmax
   	@chart_data = LazyHighCharts::HighChart.new('graph', style: '') do |f|
       f.options[:chart][:defaultSeriesType] = "line"
+      f.options[:chart][:renderTo] = "weather_chart"
       f.options[:chart][:height] = 200
+      f.options[:chart][:width] = 400
       f.options[:colors] = ['#0000ff', '#ff0000']
       f.options[:tooltip][:xDateFormat] = '%H:%M'
       f.options[:xAxis][:type] = 'category'

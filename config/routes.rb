@@ -12,6 +12,14 @@ Weather::Application.routes.draw do
   get "welcome/index"
   post "welcome/index"
   
+  resources :charts do
+    collection do
+      get 'basic_line'
+      get 'line_ajax'
+      get 'line_labels'
+    end
+  end
+
   resources :sensors  
   resources :temperatures
   resources :humidities
